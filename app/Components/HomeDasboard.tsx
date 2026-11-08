@@ -104,6 +104,7 @@ export default function HomeDashboard() {
             </p>
           </div>
 
+
           {/* AC status */}
           <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
             <div className="flex flex-wrap items-center justify-between gap-4">
