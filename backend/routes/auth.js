@@ -548,7 +548,7 @@ router.post("/verify-otp", otpVerifyLimiter, async (req, res) => {
         res.cookie("passwordResetToken", resetToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
-            sameSite: "lax",
+          sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
             maxAge: 15 * 60 * 1000,
             path: "/api/auth/reset-password"
         });
@@ -586,7 +586,7 @@ router.post("/reset-password", async (req, res) => {
     const cookieOptions = {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
         path: "/api/auth/reset-password"
     };
 
